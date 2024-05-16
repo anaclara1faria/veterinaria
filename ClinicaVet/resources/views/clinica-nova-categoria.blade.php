@@ -25,7 +25,7 @@
 </head>
 
 <body>
-
+    
     <div class="conteudo">
         <div class="formulari">
             <div class="animal-box">
@@ -41,31 +41,35 @@
 
                 <div class="animal-info">
                     <div class="infs">
-                        <form onsubmit="return exibirMensagem()">
+                        @if(session('success'))
+    <span>{{session('success')}}</span>
+    @endif
+                        <form method="POST">
+                            @csrf
                             <div>
                                 
-                                <input type="text" id="info1" name="info1" required placeholder="Escreva o nome da RAÇA:" class="caixa">
+                                <input type="text" id="info1" name="race" required placeholder="Escreva o nome da RAÇA:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info2" name="info2" required placeholder="Escreva a raça de ORIGEM:" class="caixa">
+                                <input type="text" id="info2" name="origin" required placeholder="Escreva a raça de ORIGEM:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info3" name="info3" required placeholder="Descreva a APÂRENCIA:" class="caixa">
+                                <input type="text" id="info3" name="appearance" required placeholder="Descreva a APÂRENCIA:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info4" name="info4" required placeholder="Descreva as CORES:" class="caixa">
+                                <input type="text" id="info4" name="colors" required placeholder="Descreva as CORES:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info5" name="info5" required placeholder="Descreva a PERSONALIDADE:" class="caixa">
+                                <input type="text" id="info5" name="personality" required placeholder="Descreva a PERSONALIDADE:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info6" name="info6" required placeholder="Descrava as HABILIDADES:" class="caixa">
+                                <input type="text" id="info6" name="skills" required placeholder="Descrava as HABILIDADES:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info7" name="info7" required placeholder="Descreva sobre SUÁDE:" class="caixa">
+                                <input type="text" id="info7" name="health" required placeholder="Descreva sobre SUÁDE:" class="caixa">
                             </div>
                             <div>
-                                <input type="text" id="info8" name="info8" required placeholder="Descreva sobre a EXPECTATIVA DE VIDA:" class="caixa">
+                                <input type="text" id="info8" name="life_expectancy" required placeholder="Descreva sobre a EXPECTATIVA DE VIDA:" class="caixa">
                             </div>
                             
 

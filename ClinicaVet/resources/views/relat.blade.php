@@ -22,12 +22,20 @@
 </head>
 
 <body>
+    @if(session('success'))
+    <span>{{session('success')}}</span>
+    @endif
+    @foreach($errors->all() as $message)
+    <span>{{ $message }}</span>
+    @endforeach
     <div class="container">
         <div class="form-image">
             <img src="{{ asset('images/logo.jpg') }}" alt="logo">
         </div>
         <div class="form">
-            <form action="#">
+      
+            <form method="POST">
+                @csrf
                 <div class="form-header">
                     <div class="title">
                         <h1>Relatório animal</h1>
@@ -40,45 +48,46 @@
                 <div class="input-group">
                     <div class="input-box">
                         <label for="firstname">Nome do PET</label>
-                        <input id="firstname" type="text" name="firstname" placeholder="Digite nome do pet" required>
+                        <input id="firstname" type="text" name="pet_name" placeholder="Digite nome do pet" required>
                     </div>
 
                     <div class="input-box">
                         <label for="lastname">Raça</label>
-                        <input id="lastname" type="text" name="lastname" placeholder="Digite a raça" required>
-                    </div>
+                        <input id="lastname" type="text" name="race" placeholder="Digite a raça" required>
+                        </div>
                     <div class="input-box">
                         <label for="email">Nome do dono(a)</label>
-                        <input id="email" type="email" name="email" placeholder="Digite o nome" required>
+                        <input id="email" type="text" name="tutor_name" placeholder="Digite o nome" required>
                     </div>
 
                     <div class="input-box">
                         <label for="number">Idade</label>
-                        <input id="number" type="tel" name="number" placeholder="2 anos e 5 mese" required>
+                        <input id="number" type="tel" name="age" placeholder="2 anos e 5 mese" required>
                     </div>
 
                     <div class="input-box">
                         <label for="doenca">Doenças</label>
-                        <input id="doenca" type="text" name="doenca" placeholder=" cinomose, hepatite" required>
+                        <input id="doenca" type="text" name="illnesses" placeholder=" cinomose, hepatite" required>
                     </div>
 
 
                     <div class="input-box">
                         <label for="cirurgias">Cirurgias</label>
-                        <input id="cirurgias" type="text" name="cirurgias" placeholder="duas cirurgias" required>
+                        <input id="cirurgias" type="text" name="surgeries" placeholder="duas cirurgias" required>
                     </div>
 
                     
                     <div class="input-box">
                         <label for="doenca">Peso</label>
-                        <input id="doenca" type="text" name="doenca" placeholder="Peso atual 12Kg" required>
+                        <input id="doenca" type="text" name="weight" placeholder="Peso atual 12Kg" required>
                     </div>
 
 
                     <div class="input-box">
                         <label for="cirurgias">Observações</label>
-                        <input id="cirurgias" type="text" name="cirurgias" placeholder="Hoje o animal demonstrou sinais preocupantes" required>
+                        <input id="cirurgias" type="text" name="comments" placeholder="Hoje o animal demonstrou sinais preocupantes" required>
                     </div>
+
 
                 </div>
 
@@ -89,34 +98,34 @@
 
                     <div class="gender-group">
                         <div class="gender-input">
-                            <input id="female" type="checkbox" name="gender">
-                            <label for="female">Vanicado</label>
+                            <input id="female" type="checkbox" name="characteristics1">
+                            <label for="female">Vacinado</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="male" type="checkbox" name="gender">
+                            <input id="male" type="checkbox" name="characteristics2">
                             <label for="male">Alergia</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="others" type="checkbox" name="gender">
+                            <input id="others" type="checkbox" name="characteristics3">
                             <label for="others">Medicamento</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="none" type="checkbox" name="gender">
+                            <input id="none" type="checkbox" name="characteristics4">
                             <label for="none">Canino</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="none" type="checkbox" name="gender">
+                            <input id="none" type="checkbox" name="characteristics5">
                             <label for="none">Felino</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="continue-button">
-                    <button><a href="#">Continuar</a> </button>
+                    <button type="submit">Continuar </button>
                 </div>
             </form>
         </div>
